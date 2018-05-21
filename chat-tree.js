@@ -23,7 +23,7 @@ function ChatTree(element) {
 
         list.dblclick((e)=>{
             changeColor(e.target);
-            expandNodes(e.target);
+             expandNodes(e.target);
         });
     }
     
@@ -97,7 +97,6 @@ function ChatTree(element) {
         }
         else if(!(node.hasClass('left tree'))){
             changeColor(node.parent());
-            node.remove();
         }
     }
 
