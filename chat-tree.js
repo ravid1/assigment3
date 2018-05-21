@@ -23,15 +23,20 @@ function ChatTree(element) {
 
         list.dblclick((e)=>{
             changeColor(e.target);
-            let data = $(e.target).data();
-            if($(e.target).children().length){
-                $(e.target).children().remove();
-            }
-
-            else if((Object.keys(data)).length) {
-                buildNodes(e.target);
-            }
+            expandNodes(e.target);
         });
+    }
+    
+    function expandNodes(node) {
+        changeColor($(node));
+        let data = $(node).data();
+        if($(node).children().length){
+            $(node).children().remove();
+        }
+
+        else if((Object.keys(data)).length) {
+            buildNodes($(node));
+        }
     }
 
     function buildNodes(element){
@@ -81,15 +86,7 @@ function ChatTree(element) {
         }
 
         else{
-            changeColor($('.active'));
-            let data = $('.active').data();
-            if($('.active').children().length){
-                $('.active').children().remove();
-            }
-
-            else if((Object.keys(data)).length) {
-                buildNodes($('.active'));
-            }
+            expandNodes($('.active'));
         }
     }
 
