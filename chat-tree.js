@@ -81,7 +81,16 @@ function ChatTree(element) {
         }
 
         else{
-            leftKey();
+            //leftKey();
+            changeColor($('.active'));
+            let data = $('.active').data();
+            if($('.active').children().length){
+                $('.active').children().remove();
+            }
+
+            else if((Object.keys(data)).length) {
+                buildNodes($('.active'));
+            }
         }
     }
 
